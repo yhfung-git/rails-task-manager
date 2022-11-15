@@ -1,0 +1,22 @@
+<h1><%= @task.title %></h1>
+<p><%= @task.details %></p>
+<div class="completed">
+<% @task.completed %>
+  <% if @task.completed %>
+    <p><%= "Completed" %></p>
+  <% else %>
+    <p><%= "Not completed yet" %></p>
+  <% end %>
+</div>
+
+  <%= link_to task_path(@task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+    <i class="fa-regular fa-trash-can"></i>
+  <% end %>
+
+<div class="btn btn-primary">
+  <%= link_to "Edit your task", edit_task_path %>
+</div>
+
+<div class="btn btn-primary">
+  <%= link_to "Back to list", tasks_path %>
+</div>
